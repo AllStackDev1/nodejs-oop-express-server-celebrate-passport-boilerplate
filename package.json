@@ -1,7 +1,7 @@
 {
-  "name": "node-express-celebrate-redis-server-boilerplate",
+  "name": "nodejs-express-server-with-passport-celebrate-boilerplate",
   "version": "1.0.0",
-  "description": "A nodejs, express server app, with redis integration and celebrate middleware validator boilerplate",
+  "description": "A nodejs, express server app, with passport auth integration and celebrate middleware validator boilerplate",
   "main": "app.js",
   "author": "Chinedu Ekene Okpala",
   "license": "MIT",
