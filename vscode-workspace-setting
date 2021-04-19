@@ -1,0 +1,15 @@
+#For easy code formatting enable eslint and 
+#copy this code into your vscode workspace setting 
+
+{
+    "editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.formatOnSave": false
+    },
+    "eslint.alwaysShowStatus": true,
+    "files.autoSave": "off",
+    "javascript.validate.enable": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
+}
