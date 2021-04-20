@@ -1,6 +1,6 @@
 FROM node:10.15.3
 
-LABEL MAINTAINER Chinedu Ekene Okpala <chinedu.okpala@completefarmer.com>
+LABEL MAINTAINER Chinedu Ekene Okpala <allstack@gmail.com>
 
 COPY . /
 
