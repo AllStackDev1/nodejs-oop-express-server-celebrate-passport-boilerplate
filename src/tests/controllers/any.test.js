@@ -25,7 +25,7 @@ suite('Any Controller Test Suites', () => {
   let AnyID = null
   // Test Any object
   const Any = {
-    name: 'any name',
+    name: 'any name'
   }
 
   // #region CREATING A NEW Any

@@ -7,7 +7,7 @@
 module.exports.name = 'miscHelpers'
 module.exports.dependencies = ['path', 'lodash', 'moment', 'node-fetch']
 module.exports.factory = (path, lodash, moment, fetch) => {
-  const { isEmpty, pick } = lodash
+  const { isEmpty } = lodash
 
   // resovle app root path
   const appRoot = path.resolve('src')
@@ -23,9 +23,6 @@ module.exports.factory = (path, lodash, moment, fetch) => {
 
   const isNotEmpty = val => !isEmpty(val)
 
-  const _pick = (obj, arr) => pick(obj, arr)
-
-
   const ajax = async (url, authorization, body, method = 'GET') =>
     await fetch(url, {
       method,
@@ -36,28 +33,18 @@ module.exports.factory = (path, lodash, moment, fetch) => {
       body
     }).then(res => res.json())
 
-  const formatDate = (date, format) => moment(date ? new Date(date) : new Date()).format(format)
-
-  const formatDateISO = (date, format) => new Date(moment(date, format))
-
   const getDate = (date, num, type) => moment(date).add(num, type).format()
 
   const dateTime = new Date().toISOString().slice(-24).replace(/\D/g, '').slice(0, 14)
 
   return {
-    appRoot,
-    getServerUrl,
-    getData,
-    contains,
-    Roles,
-    Status,
-    getQuery,
     ajax,
-    formatDate,
-    formatDateISO,
+    appRoot,
+    getData,
     getDate,
+    contains,
     dateTime,
     isNotEmpty,
-    _pick
+    getServerUrl
   }
 }

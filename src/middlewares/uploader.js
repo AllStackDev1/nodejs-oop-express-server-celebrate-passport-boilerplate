@@ -14,7 +14,7 @@ module.exports.dependencies = [
   'multer-s3',
   'fs-extra',
   'envs',
-  'miscHelper',
+  'miscHelpers',
   'logger',
   'response'
 ]

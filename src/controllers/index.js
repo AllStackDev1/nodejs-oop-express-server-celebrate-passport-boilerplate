@@ -2,6 +2,4 @@
  * Registers various files for this module
  */
 
-module.exports = [
-  require('./any_controller'),
-]
+module.exports = [require('./user')]

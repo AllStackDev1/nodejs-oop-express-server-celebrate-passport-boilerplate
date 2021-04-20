@@ -2,6 +2,4 @@
  * Registers various files for this module
  */
 
-module.exports = [
-  require('./any_repo')
-]
+module.exports = [require('./user')]

@@ -7,24 +7,13 @@
 
 module.exports.name = 'endpoints'
 module.exports.dependencies = [
-  'AnyController',
-  'AnyValidations',
+  'UserController',
+  'UserValidations',
   'MiscValidations',
-  'Cache',
   'Uploader',
-  'access',
-  'miscHelper'
+  'miscHelpers'
 ]
-module.exports.factory = (
-  AnyController,
-  AnyValidations,
-  Cache,
-  uploader,
-  hasAccess,
-  helper
-) => {
-  const {  ADMIN,  } = helper.Roles
-
+module.exports.factory = (UserController, UserValidations, MiscValidations, uploader, helper) => {
   /**
    * @param { string } route defination
    * @param { Array<'post' || 'get'|| 'patch'|| 'put' || 'delete' >} methods allowed on a route
@@ -33,34 +22,45 @@ module.exports.factory = (
    */
 
   return [
-    // #region ANY ROUTE
+    // #region User ROUTE
     {
-      route: 'anys',
-      methods: ['post', 'get'],
-      guard: true,
+      route: 'signup',
+      methods: ['post'],
       middlewares: {
-        post: [hasAccess([ADMIN]), AnyValidations.post, AnyController.insert],
-        get: [
-          AnyValidations.querySearch,
-          AnyController.get
-        ]
+        post: [UserValidations.post, UserController.insert]
       }
     },
     {
-      route: 'anys/:id',
-      methods: ['patch', 'get', 'delete'],
-      guard: true,
+      route: 'verify-account/:token',
+      methods: ['patch'],
       middlewares: {
-        patch: [
-          hasAccess([ADMIN]),
-          MiscValidations.id,
-          AnyValidations.patch,
-          AnyController.update
-        ],
-        get: [MiscValidations.id, AnyController.getById],
-        delete: [hasAccess([ADMIN]), MiscValidations.id, AnyController.delete]
+        patch: [UserValidations.paramsQuery, UserController.verifyAccount]
       }
     },
+    {
+      route: 'login',
+      methods: ['post'],
+      middlewares: {
+        post: [UserValidations.login, UserController.login]
+      }
+    },
+    {
+      route: 'Users',
+      methods: ['get'],
+      guard: true,
+      middlewares: {
+        get: [UserValidations.querySearch, UserController.get]
+      }
+    },
+    {
+      route: 'Users/:id',
+      methods: ['get', 'delete'],
+      guard: true,
+      middlewares: {
+        get: [MiscValidations.id, UserController.getById],
+        delete: [MiscValidations.id, UserController.delete]
+      }
+    }
     // #endregion
   ]
 }

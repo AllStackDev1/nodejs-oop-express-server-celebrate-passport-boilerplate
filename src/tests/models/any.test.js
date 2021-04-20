@@ -15,7 +15,7 @@ const AnyModel = testDependencies.AnyModel
 suite('Any Model Test Suites', () => {
   // Test testAny object
   const testAny = {
-    name: 'yarm block',
+    name: 'yarm block'
   }
 
   test('Should not save without a name', () => {

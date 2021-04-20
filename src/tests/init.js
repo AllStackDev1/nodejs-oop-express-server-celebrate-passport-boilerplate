@@ -87,13 +87,7 @@ const AnyModel = require('../models/any_model').factory(mongoose)
 const AnyRepository = require('../repositories/any_repo').factory
 const AnyRepoInstance = new AnyRepository(AnyModel, logger)
 const AnyController = require('../controllers/any_controller').factory
-const AnyContInstance = new AnyController(
-  AnyRepoInstance,
-  miscHelper,
-  logger,
-  response,
-  mongoose
-)
+const AnyContInstance = new AnyController(AnyRepoInstance, miscHelper, logger, response, mongoose)
 // #endregion
 
 // #region Endpoints

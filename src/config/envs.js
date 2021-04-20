@@ -7,7 +7,6 @@ module.exports.name = 'envs'
 module.exports.dependencies = false
 module.exports.factory = () => {
   'use strict'
-
   /**
    *
    * @param {string} env, a string representing the environment of application
@@ -15,7 +14,8 @@ module.exports.factory = () => {
    */
   const getEnvs = env => {
     return {
-      anyThing: process.env[`${env}_ANY_THING`],
+      dbUrl: process.env[`${env}_DATABASE_URL`],
+      dbName: process.env[`${env}_DATABASE_NAME`],
       awsId: process.env.AWS_ACCESS_KEY_ID,
       awsSecret: process.env.AWS_SECRET_ACCESS_KEY,
       awsRegion: process.env.AWS_REGION,
