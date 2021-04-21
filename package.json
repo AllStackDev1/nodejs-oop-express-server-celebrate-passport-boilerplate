@@ -14,7 +14,7 @@
     "dev": "DEBUG=app,app:* NODE_ENV=DEV nodemon -r pino-debug src/app.js",
     "start": "NODE_ENV=PROD pm2 start src/app.js",
     "docker-build": "docker build -t server_app:0.1 .",
-    "docker-run": "docker run -p 6000:8000 server_app",
+    "docker-run": "docker run -p 81:8000 --env-file .env server_app:0.1",
     "test": "nyc --all ---reporter=html --reporter=text --check-coverage --lines 70 mocha -ui tdd --timeout 40000 ./src/tests/**/*test.js --file ./src/tests/tear-down.js --exit",
     "lint": "eslint --fix . --ignore-path .eslintignore",
     "docs": "./node_modules/.bin/jsdoc -c jsdoc.json"

@@ -27,6 +27,7 @@ module.exports.factory = function (mongoose, Database, logger, log4js) {
    * @returns db connection
    */
   const dbConfig = callback => {
+    console.log('Hel3')
     mongoose.connect(connString, { useNewUrlParser: true, useUnifiedTopology: true })
     const db = mongoose.connection
     mongoose.set('useCreateIndex', true)
