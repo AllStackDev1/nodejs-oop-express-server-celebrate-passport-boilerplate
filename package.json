@@ -69,7 +69,6 @@
     "pino-debug": "^2.0.0",
     "prettier": "^2.2.1",
     "standard": "^16.0.3",
-    "standardjs": "^1.0.0-alpha",
     "supertest": "^6.1.3"
   },
   "nodemonConfig": {
